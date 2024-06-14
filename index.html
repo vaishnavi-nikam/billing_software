@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=6, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="R&C.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+ 
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        .input1{
+            height: 50px;
+            width: 465px;
+            margin-left: 60px;
+            background-color:white;
+            border-radius: 5px;
+        }
+        .texta1{
+            margin-left: 60px;
+            margin-top:20px;
+            border-radius: 5px;
+        }
+        body{
+            background-color: whitesmoke;
+        }
+        .i1{
+            margin-left: 10px;
+            height: 40px;
+        }
+        .inputa1{
+            height: 40px;
+            width: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 ">
+                <h1 style="text-align: center; color: darkblue;">INVOICE DEMO</h1>
+            </div>
+        </div>
+   
+        <div class="row">
+            <div class="col-6 mt-3">
+                <h2>FROM</h2>
+                <p style="font-size: 15px;">A2Z infotechs</p>
+                <p style="font-size: 15px;">Address-Balikashram Road,Ahmednager, maha-414001</p>
+            </div>
+            <div class="col-6 mt-3">
+                <h2 class="ml-5">To,</h2>
+                <input type="text" name="" id="" class="input1" placeholder="Username">
+                <textarea name="" id="" cols="60" rows="2" class="texta1" placeholder="Enter Your Adrress"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-5">
+                <table border="1" style="width:100%;" >
+                     <tr>
+                        <th class="p-2" style="width: 1px;">Status</th>
+                        <th class="p-2">Item no</th>
+                        <th class="p-2">Item Name</th>
+                        <th class="p-2">Qnt</th>
+                        <th class="p-2">Price</th>
+                        <th class="p-2">Total</th>
+                     </tr>
+                     <tr class="bg-secondary">
+                        <td class="p-2"><button class="btn btn-danger ml-2">D</button></td>
+                        <td class="p-1"><input type="number" name=""  class="p-2"></td>
+                        <td class="p-1"><input type="number" name=""  class="p-2"></td>
+                        <td class="p-1"><input type="number" name="" id="pprice" class="p-2" onkeyup="fun1()"></td>
+                        <td class="p-1"><input type="number" name="" id="pqnt" class="p-2" onkeyup="fun1()"></td>
+                        <td class="p-1"><input type="number" name="" id="ptotal" class="p-2"></td>
+                     </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row" style="border: 1px  gray"> 
+            <button class="btn btn-warning ml-4 mt-4">Add More</button><br>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-7">
+            <h2 class="ml-4">Notes:-</h2>
+            <textarea name="" id="" cols="80" rows="7"></textarea>
+        </div>
+        <div class="col-5">
+            <label for="">Sub Total:-</label>
+            <input type="number" class="inputa1" id="subtotal"><br>
+            <label for="">Tax:-</label>
+            <input type="number" class="inputa1" id="tax" onkeyup="tax1()" value="0"><br>
+            <label for="">Tax Total:-</label>
+            <input type="number" class="inputa1" id="taxtot" value="0"><br>
+            <label for="">Net:-</label>
+            <input type="number" class="inputa1" id="nettotal">
+        </div>
+    </div>
+</div>
+
+<script>
+     function fun1(){
+         var p=document.getElementById('pprice').value;
+         var q=document.getElementById('pqnt').value;
+         var tot=Number(p)*Number(q);
+         document.getElementById('ptotal').value=tot;
+         document.getElementById('subtotal').value=tot;
+         tax1()
+     }
+
+     function tax1(){
+        var t=document.getElementById('tax').value;
+        var s=document.getElementById('subtotal').value;
+        var tax=Number(t)*Number(s)/100;
+        var tottax=Number(s)+Number(tax);
+        document.getElementById('taxtot').value=tax;
+        document.getElementById('nettotal').value=tottax;
+     }
+</script>
+</body>
+</html>
